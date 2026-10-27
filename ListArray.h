@@ -34,7 +34,14 @@ public:
         delete[] arr;
     }
 
-    T operator[](int pos) override {
+    T& operator[](int pos){
+        if (pos < 0 || pos >= n) {
+            throw std::out_of_range("Posición fuera de rango");
+        }
+        return arr[pos];
+    }
+
+    T operator[](int pos) const {
         if (pos < 0 || pos >= n) {
             throw std::out_of_range("Posición fuera de rango");
         }
@@ -81,11 +88,11 @@ public:
         return element;
     }
 
-    T get(int pos) override {
+    T get(int pos) const override {
         return (*this)[pos];
     }
 
-    int search(T e) override {
+    int search(T e) const  override {
         for (int i = 0; i < n; ++i) {
             if (arr[i] == e) {
                 return i;
@@ -94,11 +101,11 @@ public:
         return -1;
     }
 
-    bool empty() override {
+    bool empty() const override {
         return n == 0;
     }
 
-    int size() override {
+    int size() const override {
         return n;
     }
 };
