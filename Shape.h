@@ -2,6 +2,7 @@
 #define SHAPE_H
 
 #include <string>
+#include "Point2D.h"
 
 class Shape {
     protected:
