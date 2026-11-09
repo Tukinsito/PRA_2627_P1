@@ -1,4 +1,4 @@
-all: bin/testListLinked bin/testPoint2D bin/testCircle bin/testRectangle
+all: bin/testListLinked bin/testPoint2D bin/testCircle bin/testRectangl bin/testSquare
 
 # Reglas para la EDL (Lista enlazada y nodos)
 bin/testNode: testNode.cpp Node.h
@@ -39,6 +39,16 @@ bin/testRectangle: testRectangle.cpp Rectangle.o Shape.o Point2D.o
 	g++ -c testRectangle.cpp
 	mkdir -p bin
 	g++ -o bin/testRectangle testRectangle.o Rectangle.o Shape.o Point2D.o
+
+# Reglas para Square
+Square.o: Square.cpp Square.h Rectangle.h Shape.h Point2D.h
+	g++ -c Square.cpp
+
+
+bin/testSquare: testSquare.cpp Square.o Rectangle.o Shape.o Point2D.o
+	g++ -c testSquare.cpp
+	mkdir -p bin
+	g++ -o bin/testSquare testSquare.o Square.o Rectangle.o Shape.o Point2D.o
 
 # Limpieza de temporales y binarios
 clean:
