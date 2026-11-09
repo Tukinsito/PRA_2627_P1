@@ -1,9 +1,6 @@
 #include "Circle.h"
 #include <cmath>
 
-#define M_PI
-#define M_PI 3.141592
-
 // Constructor por defecto
 Circle::Circle() : Shape("red"), center(Point2D(0, 0)), radius(1.0) {}
 
@@ -52,5 +49,3 @@ std::ostream& operator<<(std::ostream &out, const Circle &c) {
         << "; radius=" << c.radius << "]";
     return out;
 }
-#endif 
-
